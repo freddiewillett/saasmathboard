@@ -1,0 +1,21 @@
+<img src="./logo.png">
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<div class="list-group" ng-hide="roomList.length">
+				<p>No tutors available!</p>
+			</div>
+			<div class="list-group" ng-show="roomList.length">
+				<div class="list-group-item clearfix" ng-repeat="room in roomList">
+					<div class="pull-right">
+						<button ng-click="openRoom(room.$id)" class="btn btn-info">Join</button>
+						<p>
+						<strong>{{room.name}}
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

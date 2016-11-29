@@ -1,0 +1,18 @@
+<div class="container">
+	<img src="./logo.png"></img>
+	<h1>Login</h1>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4 col-sm-offset-4" ng-hide="isLoggedIn">
+			<button class="btn btn-lg btn-block btn-danger" ng-click="loginWithGoogle()">Sign in with Google</button>
+		</div>
+
+
+		<div class="col-sm-4 col-sm-offset-4" ng-show="isLoggedIn">
+			<h2>You're already logged in!</h2>
+			<button class="btn btn-lg btn-block btn-danger" ng-click="logout()">Logout</button>
+		</div>
+	</div>
+</div>
