@@ -4,6 +4,7 @@ angular.module('livecode').controller('MainController', function($scope, Room, A
 
 		// nobody is logged in
 		$scope.isLoggedIn = false;
+		$location.path("/login").replace();
 	}
 	else {
 
@@ -22,7 +23,8 @@ angular.module('livecode').controller('MainController', function($scope, Room, A
 		newRoom.occupied = false;
 		Room.addRoom(newRoom).then(function(theNewRoom) {
 			Room.addCreatorToRoom(theNewRoom.key, AuthWaitForLogged.uid);
-			$("#addRoomModal").modal('hide');
+			$("#addRoomModal").modal('hide')
+			$location.path("/chat/"+theNewRoom.key)
 		});
 	};
 	$scope.addJoinerToRoom = function(room_id) {
@@ -30,5 +32,11 @@ angular.module('livecode').controller('MainController', function($scope, Room, A
 	};
 	$scope.completeRoom = function(room_id) {
 		Room.removeTodo(room_id);
+	};
+	$scope.logout = function() {
+		Auth.logout().then(function() {
+			$scope.isLoggedIn = false;
+			$location.path("/login").replace();
+		});
 	};
 });

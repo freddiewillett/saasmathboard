@@ -1,5 +1,5 @@
 # angularMATHBOARD 
-UIT SaaS app project by Freddie Willett, 21-10-16
+UIT SaaS app project by Freddie Willett, 02-12-16
 
 angularMATHBOARD is a re-creation of my chat app in Angular. Unfortunately, I couldn't recreate the canvas aspect of the 
 original Mathboard to be unique in private chats. It worked in the original because it was only one room for everyone. 

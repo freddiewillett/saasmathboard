@@ -6,8 +6,6 @@ angular.module('livecode').factory('Auth', function($firebaseAuth, $firebaseObje
 	auth.$onAuthStateChanged(function(firebaseUser) {
 		if (firebaseUser) {
 			Auth.user = firebaseUser;
-			console.log("Signed in as:", firebaseUser.uid);
-			console.log(firebaseUser);
 		} else {
 			console.log("Not signed in");
 		}

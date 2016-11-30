@@ -1,21 +1,21 @@
 <div class="container">
 	<div class="row">
 			
-		<div class="col-sm-6 col-sm-offset-3">
-			<img src="./logo.png">
-			<button ng-click="showAddRoom()" class="btn btn-danger">Add Room</button>
-			<button class="btn btn-danger" ng-click="logout()">Logout</button>
+		<div class="col-sm-6 col-sm-offset-3" style="text-align: center;">
+				<img src="./logo.png">
+				<button ng-click="showAddRoom()" class="btn btn-danger">Add Room</button>
+				<button class="btn btn-danger" ng-click="logout()">Logout</button>
 			<div class="list-group" ng-hide="roomsList.length">
 				<p>No tutors available!</p>
 			</div>
 			<div class="list-group" ng-show="roomsList.length">
 				<div  ng-repeat="room in roomsList">
 					<div class="list-group-item clearfix" ng-hide="room.occupied">
-						<div class="pull-right">
-							<a ng-click="addJoinerToRoom(room.$id)" class="btn btn-danger btn-block" href="#/chat/{{room.$id}}">JOIN</a>
+						<div style="text-align: center;">
 							<p> 
 								<strong>{{room.name}}
 							</p>
+							<a ng-click="addJoinerToRoom(room.$id)" class="btn btn-danger btn-block" href="#/chat/{{room.$id}}">JOIN</a>
 						</div>
 					</div>
 				</div>
@@ -24,7 +24,7 @@
 	</div>
 </div>
 
-<div id="addRoomModal" class="modal fade" tabindex="-1" role="dialog">
+<div id="addRoomModal" class="modal" tabindex="-1" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			  <div class="modal-header">
@@ -35,9 +35,9 @@
 			    <input type="text" class="form-control modal-form" ng-model="newRoom.name" placeholder="Your name">
 			  </div>
 			  <div class="modal-footer">
-			    <button class="btn btn-lg btn-block btn-success" ng-click="addRoom(newRoom)">
+			    <a class="btn btn-lg btn-block btn-success" ng-click="addRoom(newRoom)">
 					Add
-				</button>
+				</a>
 			  </div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
