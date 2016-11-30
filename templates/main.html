@@ -1,21 +1,44 @@
-<img src="./logo.png">
-
 <div class="container">
 	<div class="row">
+			
 		<div class="col-sm-6 col-sm-offset-3">
-			<div class="list-group" ng-hide="roomList.length">
+			<img src="./logo.png">
+			<button ng-click="showAddRoom()" class="btn btn-danger">Add Room</button>
+			<button class="btn btn-danger" ng-click="logout()">Logout</button>
+			<div class="list-group" ng-hide="roomsList.length">
 				<p>No tutors available!</p>
 			</div>
-			<div class="list-group" ng-show="roomList.length">
-				<div class="list-group-item clearfix" ng-repeat="room in roomList">
-					<div class="pull-right">
-						<button ng-click="openRoom(room.$id)" class="btn btn-info">Join</button>
-						<p>
-						<strong>{{room.name}}
-						</p>
+			<div class="list-group" ng-show="roomsList.length">
+				<div  ng-repeat="room in roomsList">
+					<div class="list-group-item clearfix" ng-hide="room.occupied">
+						<div class="pull-right">
+							<a ng-click="addJoinerToRoom(room.$id)" class="btn btn-danger btn-block" href="#/chat/{{room.$id}}">JOIN</a>
+							<p> 
+								<strong>{{room.name}}
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<div id="addRoomModal" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			  <div class="modal-header">
+			    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			    <h4 class="modal-title">Add a Room</h4>
+			  </div>
+			  <div class="modal-body">
+			    <input type="text" class="form-control modal-form" ng-model="newRoom.name" placeholder="Your name">
+			  </div>
+			  <div class="modal-footer">
+			    <button class="btn btn-lg btn-block btn-success" ng-click="addRoom(newRoom)">
+					Add
+				</button>
+			  </div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->

@@ -1,14 +1,18 @@
 <div class="container">
-	<img src="./logo.png"></img>
-	<h1>Login</h1>
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<img src="./logo.png"></img>
+			<h3 style="text-align: center;">Sign in with</h3>
+		</div>
+	</div>
 </div>
 
 <div class="container">
 	<div class="row">
 		<div class="col-sm-4 col-sm-offset-4" ng-hide="isLoggedIn">
-			<button class="btn btn-lg btn-block btn-danger" ng-click="loginWithGoogle()">Sign in with Google</button>
+			<button class="btn btn-lg btn-block btn-success" ng-click="loginWithGoogle()">Google</button>
+			<button class="btn btn-lg btn-block btn-primary" ng-click="loginWithTwitter()">Twitter</button>
 		</div>
-
 
 		<div class="col-sm-4 col-sm-offset-4" ng-show="isLoggedIn">
 			<h2>You're already logged in!</h2>

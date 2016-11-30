@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3" style="text-align: center;">
+			<img src="./logo.png"></img>
+			<h3>Chat</h3>
+			<button ng-click="leaveRoom()" class="btn btn-danger">Leave Room</button>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="list-group" ng-show="chatList.length">
+				<div class="list-group-item clearfix" ng-repeat="chat in chatList">
+					<div class="pull-right">
+						<p>
+						<strong>{{chat.user_id}}:</strong>{{chat.message}}
+						</p>
+					</div>
+				</div>
+			</div>
+		<input type="text" name="message" ng-model="message.text" placeholder="type your message..." class="col-sm-11">
+		<button ng-click="sendMessage(roomid)" class="btn btn-info sendbtn">Send</button>
+		</div>
+	</div>
+</div>

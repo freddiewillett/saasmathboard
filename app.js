@@ -10,18 +10,15 @@ angular.module('livecode').config(function($routeProvider) {
 		templateUrl: 'templates/login.html',
 		controller: 'LoginController',
 		resolve: {
-			AuthLogged: function(Auth) {
-	            return Auth.isLoggedIn();
-	        }
+	  		AuthWaitForLogged: function(Auth) {
+	  			return Auth.getAuth().$waitForSignIn();
+	  		}
 		}
 	})
 	.when('/main', {
 		templateUrl: 'templates/main.html',
 		controller: 'MainController',
 		resolve: {
-			// AuthLogged: function(Auth) {
-	  //           return Auth.isLoggedIn();
-	  //       }
 	  		AuthWaitForLogged: function(Auth) {
 	  			return Auth.getAuth().$waitForSignIn();
 	  		}
@@ -31,17 +28,17 @@ angular.module('livecode').config(function($routeProvider) {
 		templateUrl: 'templates/profile.html',
 		controller: 'ProfileController',
 		resolve: {
-	  	AuthWaitForLogged: function(Auth) {
-	  		return Auth.getAuth().$waitForSignIn();
+		  	AuthWaitForLogged: function(Auth) {
+		  		return Auth.getAuth().$waitForSignIn();
 	  		}
 		}
 	})
-	.when('/chat', {
+	.when('/chat/:chat_id', {
 		templateUrl: 'templates/chat.html',
 		controller: 'ChatController',
 		resolve: {
-  		AuthWaitForLogged: function(Auth) {
-  			return Auth.getAuth().$waitForSignIn();
+	  		AuthWaitForLogged: function(Auth) {
+	  			return Auth.getAuth().$waitForSignIn();
 	  		}
 		}
 	})
