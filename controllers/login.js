@@ -11,6 +11,7 @@ angular.module('livecode').controller('LoginController', function($scope, Auth, 
 		// somebody is logged in
 		$scope.isLoggedIn = true;
 		$scope.currentUser = Auth.checkUser(AuthWaitForLogged);
+		$location.path("/main").replace();
 	}
 
 	$scope.loginWithGoogle = function() {
