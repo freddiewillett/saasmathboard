@@ -18,6 +18,7 @@ angular.module('livecode').controller('MainController', function($scope, Room, A
 	$scope.showAddRoom = function() {
 		$("#addRoomModal").modal('show');
 	};
+	
 
 	$scope.addRoom = function(newRoom) {
 		newRoom.occupied = false;
