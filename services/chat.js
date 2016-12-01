@@ -12,15 +12,14 @@ angular.module('livecode').factory('Chat', function($firebaseObject, $firebaseAr
 		// 	return Room.rooms;
 		// },
 		getMessages: function(room_id) {
-			console.log(room_id);
 			var messagesRef = chatRef.child(room_id);
 			return $firebaseArray(messagesRef);
 		},
-		sendMessage: function(room_id, displayName, message) {
+		sendMessage: function(room_id, user_id, message) {
 			var messagesRef = chatRef.child(room_id);
 			var theMessages = $firebaseArray(messagesRef);
 				theMessages.$add({
-					user_id: displayName,
+					user_id: user_id,
 					message: message,
 				})
 		},

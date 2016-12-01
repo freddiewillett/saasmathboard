@@ -40,6 +40,15 @@ angular.module('livecode').factory('Auth', function($firebaseAuth, $firebaseObje
 			return theUser;
 		},
 
+		getProfile: function(user_id) {
+			var ref = firebase.database().ref().child('profiles').child(user_id);
+			var theUser = $firebaseObject(ref);
+
+			return theUser;
+		},
+		addReview: function(profile, review) {
+			return profile.$add(review);
+		},
 		logout: function() {
 			return auth.$signOut();
 		},

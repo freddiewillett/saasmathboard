@@ -18,6 +18,10 @@ angular.module('livecode').factory('Room', function($firebaseArray, $firebaseObj
 			var individualRoomRef = roomRef.child(room_id);
 			return $firebaseObject(individualRoomRef);
 		},
+		getRoomMembers: function(room_id) {
+			var individualRoomMembersRef = roomMembersRef.child(room_id);
+			return $firebaseObject(individualRoomMembersRef);
+		},
 		removeRoom: function(room_id) {
 			var individualRoomRef = roomRef.child(room_id);
 			var theRoom = $firebaseObject(individualRoomRef);
