@@ -33,9 +33,11 @@ angular.module('livecode').factory('Auth', function($firebaseAuth, $firebaseObje
 		checkUser: function(user) {
 			var ref = firebase.database().ref().child('profiles').child(user.uid);
 			var theUser = $firebaseObject(ref);
-			theUser.display_name = user.displayName;
-			theUser.email = user.email;
-			theUser.$save();
+			theUser.$loaded().then(function(){
+				theUser.display_name = user.displayName;
+				theUser.email = user.email;
+				theUser.$save();
+			});
 
 			return theUser;
 		},
@@ -47,7 +49,12 @@ angular.module('livecode').factory('Auth', function($firebaseAuth, $firebaseObje
 			return theUser;
 		},
 		addReview: function(profile, review) {
-			return profile.$add(review);
+			if (!Array.isArray(profile.reviews)) {
+				profile.reviews = [];
+			}
+			profile.reviews.push(review);
+
+			return profile.$save();
 		},
 		logout: function() {
 			return auth.$signOut();

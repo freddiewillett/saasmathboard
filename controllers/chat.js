@@ -36,6 +36,7 @@ angular.module('livecode').controller('ChatController', function(Auth, $scope, $
 			var review = {
 				name:$scope.currentUser.display_name,
 				rating:$scope.leaveRating.rating,
+				room:$scope.currentRoom.name,
 			}
 			Auth.addReview(creatorProfile, review).then(function() {
 				$("#ratingModal").modal('hide');

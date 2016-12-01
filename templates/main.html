@@ -4,7 +4,8 @@
 		<div class="col-sm-6 col-sm-offset-3" style="text-align: center;">
 				<img src="./logo.png">
 				<button ng-click="showAddRoom()" class="btn btn-danger">Add Room</button>
-				<button class="btn btn-danger" ng-click="logout()">Logout</button>
+				<button class="btn btn-danger" ng-click="logout()">Logout</button> <br>
+				<h3>Rooms</h3>
 			<div class="list-group" ng-hide="roomsList.length">
 				<p>No tutors available!</p>
 			</div>
@@ -14,10 +15,30 @@
 						<div style="text-align: center;">
 							<p> 
 								<strong>{{room.name}}
+								</strong>
 							</p>
 							<a ng-click="addJoinerToRoom(room.$id)" class="btn btn-danger btn-block" href="#/chat/{{room.$id}}">JOIN</a>
 						</div>
 					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="col-sm-6 col-sm-offset-3" style="text-align: center;">
+	<h3>Ratings</h3>
+	<div class="list-group" ng-hide="currentUser.reviews.length">
+		<p>No ratings available!</p>
+	</div>
+	<div class="list-group" ng-show="currentUser.reviews.length">
+		<div ng-repeat="reviews in currentUser.reviews">
+			<div class="list-group-item clearfix">
+				<div style="text-align: center;">
+					<p> 
+						<strong>{{reviews.room}}</br></strong>{{reviews.name}} left you a rating of {{reviews.rating}}!
+						
+					</p>
 				</div>
 			</div>
 		</div>
