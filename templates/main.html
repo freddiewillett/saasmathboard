@@ -3,8 +3,8 @@
 			
 		<div class="col-sm-6 col-sm-offset-3" style="text-align: center;">
 				<img src="./logo.png">
-				<button ng-click="showAddRoom()" class="btn btn-danger">Add Room</button>
-				<button class="btn btn-danger" ng-click="logout()">Logout</button> <br>
+				<button ng-click="showAddRoom()" class="btn btn-danger" style="margin-top: 20px;">Add Room</button>
+				<button class="btn btn-danger" ng-click="logout()" style="margin-top: 20px;">Logout</button> <br>
 				<h3>Rooms</h3>
 			<div class="list-group" ng-hide="roomsList.length">
 				<p>No tutors available!</p>
@@ -26,19 +26,22 @@
 	</div>
 </div>
 
-<div class="col-sm-6 col-sm-offset-3" style="text-align: center;">
-	<h3>Ratings</h3>
-	<div class="list-group" ng-hide="currentUser.reviews.length">
-		<p>No ratings available!</p>
-	</div>
-	<div class="list-group" ng-show="currentUser.reviews.length">
-		<div ng-repeat="reviews in currentUser.reviews">
-			<div class="list-group-item clearfix">
-				<div style="text-align: center;">
-					<p> 
-						<strong>{{reviews.room}}</br></strong>{{reviews.name}} left you a rating of {{reviews.rating}}!
-						
-					</p>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3" style="text-align: center;">
+			<h3>Ratings</h3>
+			<div class="list-group" ng-hide="currentUser.reviews.length">
+				<p>No ratings available!</p>
+			</div>
+			<div class="list-group" ng-show="currentUser.reviews.length">
+				<div ng-repeat="reviews in currentUser.reviews">
+					<div class="list-group-item clearfix">
+						<div style="text-align: center;">
+							<p> 
+								<strong>{{reviews.room}}</br></strong>{{reviews.name}} left you a rating of {{reviews.rating}}!
+							</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -53,7 +56,7 @@
 			    <h4 class="modal-title">Add a Room</h4>
 			  </div>
 			  <div class="modal-body">
-			    <input type="text" class="form-control modal-form" ng-model="newRoom.name" placeholder="Your name">
+			    <input type="text" class="form-control modal-form" ng-model="newRoom.name" placeholder="Room name">
 			  </div>
 			  <div class="modal-footer">
 			    <a class="btn btn-lg btn-block btn-success" ng-click="addRoom(newRoom)">

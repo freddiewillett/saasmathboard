@@ -5,6 +5,16 @@
     text-shadow: none;
     background: red;
 }
+html {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #FFF;
+}
 .myButton {
 	background-color:#7bc77b;
 	display:inline-block;
@@ -57,11 +67,6 @@
 }			
 .messageContent {
 	bottom: 0;
-	width: 85vw;
-	max-width: 80vw;
-	height: 5%;
-	padding-left: 10px;
-	margin: 20px;
 	position: absolute;
 }
 .messages {
