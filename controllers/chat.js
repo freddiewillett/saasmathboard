@@ -20,10 +20,10 @@ angular.module('livecode').controller('ChatController', function(Auth, $scope, $
 
 	$scope.showRating = function() {
 		if ($scope.currentUser.$id == $scope.roomMembers.creator) {
-			$location.path("/main").replace();
+			$("#ratingModal").modal('show');
 		}
 		else {
-			$("#ratingModal").modal('show');
+			$location.path("/main").replace();
 		}
 	};
 
@@ -31,7 +31,7 @@ angular.module('livecode').controller('ChatController', function(Auth, $scope, $
 		console.log($scope.currentUser.$id);
 		console.log($scope.roomMembers.creator);
 
-		var creatorProfile = Auth.getProfile($scope.roomMembers.creator);
+		var creatorProfile = Auth.getProfile($scope.roomMembers.joiner);
 		creatorProfile.$loaded().then(function() {
 			var review = {
 				name:$scope.currentUser.display_name,
