@@ -19,7 +19,8 @@ angular.module('livecode').controller('ChatController', function(Auth, $scope, $
 	$scope.roomMembers = Room.getRoomMembers($scope.roomid);
 
 	$scope.showRating = function() {
-		if ($scope.currentUser.$id == $scope.roomMembers.creator) {
+		if ($scope.currentUser.$id == $scope.roomMembers.creator && $scope.roomMembers.joiner !== undefined) {
+			console.log($scope.roomMembers.joiner);
 			$("#ratingModal").modal('show');
 		}
 		else {
