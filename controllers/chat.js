@@ -20,18 +20,15 @@ angular.module('livecode').controller('ChatController', function(Auth, $scope, $
 
 	$scope.showRating = function() {
 		if ($scope.currentUser.$id == $scope.roomMembers.creator && $scope.roomMembers.joiner !== undefined) {
-			console.log($scope.roomMembers.joiner);
 			$("#ratingModal").modal('show');
 		}
 		else {
 			$location.path("/main").replace();
+			// Chat.leaveMessage(room_id, AuthWaitForLogged.displayName, $scope.message.text);
 		}
 	};
 
 	$scope.addRating = function(room_id) {
-		console.log($scope.currentUser.$id);
-		console.log($scope.roomMembers.creator);
-
 		var creatorProfile = Auth.getProfile($scope.roomMembers.joiner);
 		creatorProfile.$loaded().then(function() {
 			var review = {
@@ -47,7 +44,13 @@ angular.module('livecode').controller('ChatController', function(Auth, $scope, $
 	}
 	
 	$scope.sendMessage = function(room_id) {
-		Chat.sendMessage(room_id, AuthWaitForLogged.displayName, $scope.message.text);
+		if ($scope.message.text == null || $scope.message.text == undefined) {
+			
+		}
+		else {
+			Chat.sendMessage(room_id, AuthWaitForLogged.displayName, $scope.message.text);
+    		$scope.message.text = null;
+		}
 	};
 });
 

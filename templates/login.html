@@ -9,14 +9,10 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-sm-4 col-sm-offset-4" ng-hide="isLoggedIn">
-			<button class="btn btn-lg btn-block btn-success" ng-click="loginWithGoogle()">Google</button>
-			<button class="btn btn-lg btn-block btn-primary" ng-click="loginWithTwitter()">Twitter</button>
-		</div>
-
-		<div class="col-sm-4 col-sm-offset-4" ng-show="isLoggedIn">
-			<h2>You're already logged in!</h2>
-			<button class="btn btn-lg btn-block btn-danger" ng-click="logout()">Logout</button>
+		<div class="col-sm-6 col-sm-offset-3" ng-hide="isLoggedIn" style="text-align: center;">
+			<a ng-click="loginWithGoogle()"><i class="fa fa-google" aria-hidden="true" style="font-size: 75px; padding: 20px;"> </i></a>
+			<a ng-click="loginWithTwitter()"><i class="fa fa-twitter" aria-hidden="true" style="font-size: 75px; padding: 20px;"> </i></a>
+    </button>
 		</div>
 	</div>
 </div>

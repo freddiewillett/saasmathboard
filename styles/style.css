@@ -27,6 +27,17 @@ body {
 	text-align: center;
 	float: center;
 }
+.leave {
+  color: gray;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: lighter;
+  padding-top: 1px;
+  text-decoration: underline;
+  position: fixed;
+  bottom: 5%;
+  left: 5%;
+}
 .myButton:hover {
 	background-color:#355227;
 }
@@ -66,12 +77,14 @@ body {
   margin-left:222px;
 }			
 .messageContent {
-	bottom: 0;
-	position: absolute;
+	position: fixed;
+  bottom: 5%;
+}
+.mContent {
+  width: 500px;
 }
 .messages {
-	height: 730px;
-	max-height: 730px;
+	max-height: 480px;
 	overflow-y: auto;
 	line-height: 1;
 }
@@ -91,9 +104,10 @@ body {
   color: #ffffff;
   font-size: 20px;
   background: #ff0000;
-  padding: 10px 20px 10px 20px;
   border: dotted #cfcfcf 1px;
   text-decoration: none;
+  bottom: 5%;
+  position: fixed;
 }
 .sendbtn:hover {
   background: #ff6666;

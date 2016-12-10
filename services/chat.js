@@ -23,6 +23,14 @@ angular.module('livecode').factory('Chat', function($firebaseObject, $firebaseAr
 					message: message,
 				})
 		},
+		// leaveMessage: function(room_id, user_id, message) {
+		// 	var messagesRef = chatRef.child(room_id);
+		// 	var theMessages = $firebaseArray(messagesRef);
+		// 		theMessages.$add({
+		// 			user_id: user_id,
+		// 			message: "has left!",
+		// 		})
+		// },
 		// removeRoom: function(room_id) {
 		// 	var individualRoomRef = roomRef.child(room_id);
 		// 	var theRoom = $firebaseObject(individualRoomRef);

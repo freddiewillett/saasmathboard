@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-sm-6 col-sm-offset-3" style="text-align: center;">
 			<img src="./logo.png"></img>
-			<a class="btn btn-danger" ng-click="showRating(currentRoom.$id)" style="margin-top: 20px;">Leave Room</a><br>
+			<a class="leave" ng-click="showRating(currentRoom.$id)" style="margin-top: 20px;">leave room</a><br>
 			<strong><h3>Chatting in</h3></strong>
 			<h1>{{currentRoom.name}}</h1>
 		</div>
@@ -12,7 +12,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-6 col-sm-offset-3">
-			<div class="list-group" ng-show="chatList.length">
+			<div class="list-group messages" ng-show="chatList.length">
 				<div class="list-group-item clearfix" ng-repeat="chat in chatList">
 					<div class="pull-right">
 						<p>
@@ -21,22 +21,40 @@
 					</div>
 				</div>
 			</div>
-		<input type="text" name="message" ng-model="message.text" placeholder="type your message..." style="margin-bottom: 20px; width: 420px" class="col-sm-5 col-sm-offset-3 messageContent">
-		<button ng-click="sendMessage(roomid)" class="btn btn-sm btn-danger" style="margin-bottom: 20px;">Send</button>
 		</div>
 	</div>
 </div>
 
+<!-- <input type="text" name="message" ng-model="message.text" ngSubmit="sendMessage(roomid)" placeholder="type your message..." style="margin-bottom: 20px; width: 420px" class="col-sm-5 messageContent"> -->
+<!-- <button ng-click="sendMessage(roomid)" class="btn btn-sm btn-danger col-sm-offset-3" style="margin-bottom: 20px;">Send</button> -->
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-offset-3 col-sm-6">
+			<form ng-submit="sendMessage(roomid)" class="messageContent">
+				<input type="text" ng-model="message.text" name="message" placeholder="type your message..." class="mContent">
+				<button class="btn btn-sm btn-danger">Send</button>
+			</form>
+		</div>
+	</div>
+</div>
 
 <div id="ratingModal" class="modal" tabindex="-1" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			  <div class="modal-header">
 			    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			    <h4 class="modal-title">Rate the helpfulness of this tutor!</h4>
+			    <h4 class="modal-title" style="text-align: center;">Rate this tutor!</h4>
 			  </div>
 			  <div class="modal-body">
-			    <input type="number" class="form-control modal-form" ng-model="leaveRating.rating" placeholder="1-5">
+			    <select name="rating" ng-model="leaveRating.rating" style="width: 100%; text-align: center;">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+			    <!-- <input type="number" class="form-control modal-form" ng-model="leaveRating.rating" placeholder="1-5"> -->
 			  </div>
 			  <div class="modal-footer">
 			    <a class="btn btn-lg btn-block btn-success" ng-click="addRating(currentRoom.$id)">

@@ -3,8 +3,8 @@
 			
 		<div class="col-sm-6 col-sm-offset-3" style="text-align: center;">
 				<img src="./logo.png">
-				<button ng-click="showAddRoom()" class="btn btn-danger" style="margin-top: 20px;">Add Room</button>
-				<button class="btn btn-danger" ng-click="logout()" style="margin-top: 20px;">Logout</button> <br>
+				<button ng-click="showAddRoom()" class="btn btn-secondary" style="margin-top: 20px;">Add Room</button>
+				<a class="leave" ng-click="logout()" style="margin-top: 20px;">logout</a> <br>
 				<h3>Rooms</h3>
 			<div class="list-group" ng-hide="roomsList.length">
 				<p>No tutors available!</p>
@@ -17,7 +17,7 @@
 								<strong>{{room.name}}
 								</strong>
 							</p>
-							<a ng-click="addJoinerToRoom(room.$id)" class="btn btn-danger btn-block" href="#/chat/{{room.$id}}">JOIN</a>
+							<a ng-click="addJoinerToRoom(room.$id)" class="btn btn-secondary btn-block" href="#/chat/{{room.$id}}">JOIN</a>
 						</div>
 					</div>
 				</div>
