@@ -7,7 +7,7 @@
 				<a class="leave" ng-click="logout()" style="margin-top: 20px;">logout</a> <br>
 				<h3>Rooms</h3>
 			<div class="list-group listings" ng-hide="roomsList.length">
-				<p>No tutors available!</p>
+				<p>No rooms available!</p>
 			</div>
 			<div class="list-group listings" ng-show="roomsList.length">
 				<div  ng-repeat="room in roomsList">
@@ -31,7 +31,7 @@
 		<div class="col-sm-6 col-sm-offset-3" style="text-align: center;">
 			<h3>Ratings</h3>
 			<div class="list-group listings" ng-hide="currentUser.reviews.length">
-				<p>No ratings available!</p>
+				<p>You have no ratings available!</p>
 			</div>
 			<div class="list-group listings" ng-show="currentUser.reviews.length">
 				<div ng-repeat="reviews in currentUser.reviews">
