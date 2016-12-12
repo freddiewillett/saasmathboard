@@ -3,17 +3,24 @@
 
 ::selection {
     text-shadow: none;
-    background: red;
+    background: grays;
 }
 html {
   min-width: 100%;
   min-height: 100%;
 }
-
 body {
   width: 100vw;
   height: 100vh;
   background-color: #FFF;
+}
+.listings {
+  max-height: 227px;
+  overflow-y: auto;
+  line-height: 1;
+  border: 1px solid #e0e0e0;
+  background-color: #fcfcfc;
+  padding: 13px; 
 }
 .myButton {
 	background-color:#7bc77b;
@@ -43,9 +50,9 @@ body {
 }
 .username {
 	text-transform: capitalize;
-	font-weight: 700;
+  font-family: 'Roboto', sans-serif;
 	color: silver;
-	font-size: 10px;
+	font-size: 15px;
 	bottom: 0;
 }
 .myname {

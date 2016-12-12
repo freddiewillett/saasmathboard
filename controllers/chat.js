@@ -25,6 +25,7 @@ angular.module('livecode').controller('ChatController', function(Auth, $scope, $
 		else {
 			$location.path("/main").replace();
 			// Chat.leaveMessage(room_id, AuthWaitForLogged.displayName, $scope.message.text);
+			// LEAVE MESSAGE
 		}
 	};
 
@@ -39,6 +40,7 @@ angular.module('livecode').controller('ChatController', function(Auth, $scope, $
 			Auth.addReview(creatorProfile, review).then(function() {
 				$("#ratingModal").modal('hide');
 				$location.path("/main").replace();
+				// THIS IS WHERE THE OTHER LEAVE MESSAGE GOES
 			})
 		});
 	}

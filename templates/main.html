@@ -6,10 +6,10 @@
 				<button ng-click="showAddRoom()" class="btn btn-secondary" style="margin-top: 20px;">Add Room</button>
 				<a class="leave" ng-click="logout()" style="margin-top: 20px;">logout</a> <br>
 				<h3>Rooms</h3>
-			<div class="list-group" ng-hide="roomsList.length">
+			<div class="list-group listings" ng-hide="roomsList.length">
 				<p>No tutors available!</p>
 			</div>
-			<div class="list-group" ng-show="roomsList.length">
+			<div class="list-group listings" ng-show="roomsList.length">
 				<div  ng-repeat="room in roomsList">
 					<div class="list-group-item clearfix" ng-hide="room.occupied">
 						<div style="text-align: center;">
@@ -30,10 +30,10 @@
 	<div class="row">
 		<div class="col-sm-6 col-sm-offset-3" style="text-align: center;">
 			<h3>Ratings</h3>
-			<div class="list-group" ng-hide="currentUser.reviews.length">
+			<div class="list-group listings" ng-hide="currentUser.reviews.length">
 				<p>No ratings available!</p>
 			</div>
-			<div class="list-group" ng-show="currentUser.reviews.length">
+			<div class="list-group listings" ng-show="currentUser.reviews.length">
 				<div ng-repeat="reviews in currentUser.reviews">
 					<div class="list-group-item clearfix">
 						<div style="text-align: center;">
