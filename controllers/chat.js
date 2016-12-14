@@ -24,8 +24,7 @@ angular.module('livecode').controller('ChatController', function(Auth, $scope, $
 		}
 		else {
 			$location.path("/main").replace();
-			// Chat.leaveMessage(room_id, AuthWaitForLogged.displayName, $scope.message.text);
-			// LEAVE MESSAGE
+			Chat.leaveMessage($scope.roomid, AuthWaitForLogged.displayName);
 		}
 	};
 
@@ -40,14 +39,14 @@ angular.module('livecode').controller('ChatController', function(Auth, $scope, $
 			Auth.addReview(creatorProfile, review).then(function() {
 				$("#ratingModal").modal('hide');
 				$location.path("/main").replace();
-				// THIS IS WHERE THE OTHER LEAVE MESSAGE GOES
+				Chat.leaveMessage($scope.roomid, AuthWaitForLogged.displayName);
 			})
 		});
 	}
 	
 	$scope.sendMessage = function(room_id) {
-		if ($scope.message.text == null || $scope.message.text == undefined) {
-			
+		if ($scope.message.text == undefined){
+			console.log("The text input is empty!")
 		}
 		else {
 			Chat.sendMessage(room_id, AuthWaitForLogged.displayName, $scope.message.text);

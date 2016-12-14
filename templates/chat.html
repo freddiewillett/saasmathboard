@@ -16,7 +16,7 @@
 				<div class="list-group-item clearfix" ng-repeat="chat in chatList">
 					<div class="pull-right">
 						<p>
-						<strong>{{chat.user_id}} : </strong>{{chat.message}}
+						<strong>{{chat.user_id}} </strong>{{chat.message}}
 						</p>
 					</div>
 				</div>
@@ -44,7 +44,7 @@
 			    <h4 class="modal-title" style="text-align: center;">Rate this tutor!</h4>
 			  </div>
 			  <div class="modal-body">
-			    <select name="rating" ng-model="leaveRating.rating" style="width: 100%; text-align: center;">
+			    <select placeholder="1-5" name="rating" ng-model="leaveRating.rating" style="width: 100%; text-align: center;">
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>

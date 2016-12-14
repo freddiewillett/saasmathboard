@@ -23,46 +23,14 @@ angular.module('livecode').factory('Chat', function($firebaseObject, $firebaseAr
 					message: message,
 				})
 		},
-		// leaveMessage: function(room_id, user_id, message) {
-		// 	var messagesRef = chatRef.child(room_id);
-		// 	var theMessages = $firebaseArray(messagesRef);
-		// 		theMessages.$add({
-		// 			user_id: user_id,
-		// 			message: "has left!",
-		// 		})
-		// },
-		// removeRoom: function(room_id) {
-		// 	var individualRoomRef = roomRef.child(room_id);
-		// 	var theRoom = $firebaseObject(individualRoomRef);
-		// 	return theRoom.$remove();
-		// },
-		// addCreatorToRoom: function(room_id, user_id) {
-		// 	var individualRoomMemberRef = roomMembersRef.child(room_id);
-		// 	var theRoomMembers = $firebaseObject(individualRoomMemberRef);
-		// 		theRoomMembers.creator = user_id;
-		// 		theRoomMembers.$save();
-		// 	return theRoomMembers;
-		// },
-		// addJoinerToRoom: function(room_id, user_id) {
-		// 	var individualRoomMemberRef = roomMembersRef.child(room_id);
-		// 	var theRoomMembers = $firebaseObject(individualRoomMemberRef);
-		// 		theRoomMembers.$loaded().then (function(){
-		// 			theRoomMembers.joiner = user_id;
-		// 			theRoomMembers.$save();
-		// 	})
-			
-		// 	var individualRoomRef = roomRef.child(room_id);
-		// 	var theRoom = $firebaseObject(individualRoomRef);
-		// 		theRoom.$loaded().then (function(){
-		// 			theRoom.occupied = true;
-		// 			theRoom.$save();
-		// 	})
-			
-		// 	return theRoomMembers;
-		// }
+		leaveMessage: function(room_id, user_id, message) {
+			var messagesRef = chatRef.child(room_id);
+			var theMessages = $firebaseArray(messagesRef);
+				theMessages.$add({
+					user_id: user_id,
+					message: "has left!",
+				})
+		},
 	};
-
-	//Chat.messages = $firebaseArray(chatRef);
-
 	return Chat;
 });
